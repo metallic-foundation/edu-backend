@@ -1,0 +1,19 @@
+syntax = "proto3";
+package primitives;
+
+/// Balance type used in chain
+message Balance {
+    uint64 value = 1;
+}
+
+/// BlockNumber type used in chain
+message BlockNumber {
+    uint64 value = 1;
+}
+
+/// AccountId types used on chain
+// TODO:
+// might be better to use PublicKey instead of AccountId?
+message AccountId {
+    bytes key = 1;
+}

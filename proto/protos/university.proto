@@ -1,0 +1,40 @@
+syntax = "proto3";
+package university;
+
+import "primitives.proto";
+
+/// Represent a university Id on-chain
+message UniversityId {
+    bytes id = 1;
+}
+
+message NewUniversityParam {
+    string ipfs_link = 1;
+}
+
+message UniversityCreationResponse {
+    UniversityId university_link = 1;
+}
+
+message GetUniversityParam {
+    optional UniversityId university_id = 1;
+    optional bool only_verified = 2;
+}
+
+message UniversityInfoResponse {
+    UniversityId university_id = 1;
+    UniversityInfo info = 2;
+}
+
+message UniversityInfo {
+    string ipfs_link = 1;
+    primitives.AccountId admin = 2;
+}
+
+service UniversityService {
+    /// register a new university on-chain
+    rpc RegisterNewUniversity(NewUniversityParam) returns (UniversityCreationResponse);
+
+    /// get a information about single university giving universityId
+    rpc GetUniversityInfo(GetUniversityParam) returns (UniversityInfoResponse);
+}

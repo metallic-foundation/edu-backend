@@ -1,0 +1,12 @@
+[package]
+name = "proto"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.8.1", features = ["full"] }
+tonic = { version = "0.5.2", features = ["prost"] }
+prost = "0.8.0"
+
+[build-dependencies]
+tonic-build = { version = "0.5.2", features = ["prost"] }
