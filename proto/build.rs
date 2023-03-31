@@ -1,11 +1,29 @@
 /// Root directory of proto files
 /// from where proto will compute `include`
-const PROTO_ROOTS: &[&'static str] = &[concat!(env!("CARGO_MANIFEST_DIR", "This is supposed to be run from cargo"), "/protos")];
+const PROTO_ROOTS: &[&'static str] = &[concat!(
+    env!(
+        "CARGO_MANIFEST_DIR",
+        "This is supposed to be run from cargo"
+    ),
+    "/protos"
+)];
 
 /// List of all proto files used in the project
 const PROTO_FILES: &[&'static str] = &[
-    concat!(env!("CARGO_MANIFEST_DIR", "This is supposed to be run from cargo"), "/protos/primitives.proto"),
-    concat!(env!("CARGO_MANIFEST_DIR", "This is supposed to be run from cargo" ), "/protos/university.proto"),
+    concat!(
+        env!(
+            "CARGO_MANIFEST_DIR",
+            "This is supposed to be run from cargo"
+        ),
+        "/protos/primitives.proto"
+    ),
+    concat!(
+        env!(
+            "CARGO_MANIFEST_DIR",
+            "This is supposed to be run from cargo"
+        ),
+        "/protos/university.proto"
+    ),
 ];
 
 const PROTO_OUT_DIR: &'static str = concat!(env!("CARGO_MANIFEST_DIR"), "/src/protos");

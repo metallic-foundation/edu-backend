@@ -1,0 +1,3 @@
+[net]
+# at time of writing, I am making repo private so need to authenticate from cli
+git-fetch-with-cli = true

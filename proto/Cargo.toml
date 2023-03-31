@@ -7,6 +7,7 @@ edition = "2021"
 tokio = { version = "1.8.1", features = ["full"] }
 tonic = { version = "0.5.2", features = ["prost"] }
 prost = "0.8.0"
+edu-subxt = { git = "https://github.com/metallic-foundation/edu-subxt", branch = "main" }
 
 [build-dependencies]
 tonic-build = { version = "0.5.2", features = ["prost"] }
