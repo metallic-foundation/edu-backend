@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 /// Root directory of proto files
 /// from where proto will compute `include`
 const PROTO_ROOTS: &[&'static str] = &[concat!(
@@ -29,9 +31,12 @@ const PROTO_FILES: &[&'static str] = &[
 const PROTO_OUT_DIR: &'static str = concat!(env!("CARGO_MANIFEST_DIR"), "/src/protos");
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    println!("OUT DIR: {PROTO_OUT_DIR}");
+    let out_dir = PathBuf::from(std::env::var("OUT_DIR").unwrap());
+    let greeter_descriptor = out_dir.join("greeter_descriptor.bin");
+
     tonic_build::configure()
         .build_server(true)
+        .file_descriptor_set_path(greeter_descriptor)
         .build_client(true)
         .out_dir(PROTO_OUT_DIR)
         .compile(PROTO_FILES, PROTO_ROOTS)?;
