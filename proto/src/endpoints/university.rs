@@ -14,14 +14,12 @@ impl university_service_server::UniversityService for Backend {
         &self,
         request: tonic::Request<GetUniversityParam>,
     ) -> Result<tonic::Response<UniversityInfoResponse>, tonic::Status> {
-        let param = request.get_ref();
-        println!("Getting university info for: {:#?}", param);
+        let request = request.into_inner();
 
-        let university = UniversityInfoResponse {
-            university_id: None,
-            info: None,
-        };
+        let university_id = request.university_id;
+        
+        let 
 
-        Ok(tonic::Response::new(university))
+        todo!()
     }
 }

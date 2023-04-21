@@ -22,8 +22,6 @@ pub struct UniversityCreationResponse {
 pub struct GetUniversityParam {
     #[prost(message, optional, tag = "1")]
     pub university_id: ::core::option::Option<UniversityId>,
-    #[prost(bool, optional, tag = "2")]
-    pub only_verified: ::core::option::Option<bool>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
